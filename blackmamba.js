@@ -14,7 +14,7 @@ class Blackmamba extends EventEmitter {
         // makes Blackmamba available for window and unix
         this.useWindowsPath = this.detectWindowsFilePath();
         
-        var port = config.port || process.env.port;
+        var port = config.port;
         
         this.server.listen(port, (err) => {
             err ? console.log(err) 
@@ -100,6 +100,7 @@ class Blackmamba extends EventEmitter {
         
         function sendStaticFile (pathArray) {
             var filePath = self.convertToPath(pathArray);
+            console.log(filePath);
             fs.readFile(filePath, staticFile);
         }        
         
@@ -157,7 +158,10 @@ class Blackmamba extends EventEmitter {
                 list.shift();
             }
     
-            isPrototype ? proto = list.shift() : feature = list.shift();
+            if (isPrototype) proto = list.shift();
+            console.log(list);
+            if ((isJavascript || isCss) && list.length > 1) feature = list.shift();
+            console.log('feature', feature);
         }
         return {
             requestType: requestType,
