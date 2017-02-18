@@ -1,0 +1,30 @@
+{
+    "server": {
+        "homePageLogin": false,
+        "port": 8081,
+        "rootPath": null,
+    },
+    
+    "mediaExtension": {
+        image: ["jpg", "png", "svg"],
+        audio: ["mp3", "aac"],
+        video: ["avi", "mp4"],
+        document: ["pdf"]
+    },
+    
+    "scriptExtension": ["css", "js", "json", "html"],
+    
+    "requestTypes": {
+        "list" :["admin", "api", "push", "script", 
+                    "image", "audio", "video", "document", "binary"],
+        "config": {}            
+    },
+    
+    "features": {
+        "shell": true
+        "login": true,
+        "page": {"access": "private"},
+        "blog": {"menu": true},
+        "documentation": {"menu": true},
+    }
+}
